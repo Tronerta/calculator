@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
+/* General styles */
+* {
+	margin: 0;
+	padding: 0;
+	border
+}
+
+body {
+	height: 100vh;
+	display: flex;
+	background: #B8B8AA;
+	font-family: 'Montserrat', sans-serif;
+}
+
+/* Calculator styles */
+.calculator {
+	align-self: center;
+}
+
+input {
+	height: 8rem;
+	background: #BFFFEA;
+	border: 4px solid #070707;
+	border-bottom: 2px solid #070707;
+}
+
+.buttons-block {
+	border: 2px solid #070707;
+	border-top: 0;
+}
+
+/* Button styles */
+button.p-2.flex-fill {
+  width: 25%;
+  height: 5rem;
+	background: #51CC94;
+	border: 2px solid #070707;
+	color: #393E41;
+	outline: none;
+}
+
+button.p-2.flex-fill:focus {
+	background: #75FFD1;
+}
+
+#equalButton {
+	width: 50%;
+}
