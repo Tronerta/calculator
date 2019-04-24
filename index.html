@@ -3,53 +3,34 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Calculator</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	<link rel="stylesheet" href="style/main.css">
 </head>
 <body>
-	<div class="container calculator">
-		<div class="row">
-			<div class="col-md-6 offset-md-3">
-				<div class="input-container">
-					<div class="w-100" id="input"></div>
-					<div class="w-100" id="output"></div>
-				</div>
-				<div class="buttons-block">
-					<div class="buttons d-flex">
-						<button class="p-2 flex-fill operator" id="backspace">CE</button>
-						<button class="p-2 flex-fill operator" id="clear">C</button>
-						<button class="p-2 flex-fill">DEL</button>
-						<button class="p-2 flex-fill operator" id="/">/</button>
-					</div>
-					<div class="buttons d-flex">
-						<button class="p-2 flex-fill number-btn" id="7">7</button>
-						<button class="p-2 flex-fill number-btn" id="8">8</button>
-						<button class="p-2 flex-fill number-btn" id="9">9</button>
-						<button class="p-2 flex-fill operator" id="*">*</button>
-					</div>
-					<div class="buttons d-flex">
-						<button class="p-2 flex-fill number-btn" id="4">4</button>
-						<button class="p-2 flex-fill number-btn" id="5">5</button>
-						<button class="p-2 flex-fill number-btn" id="6">6</button>
-						<button class="p-2 flex-fill operator" id="+">+</button>
-					</div>
-					<div class="buttons d-flex">
-						<button class="p-2 flex-fill number-btn" id="1">1</button>
-						<button class="p-2 flex-fill number-btn" id="2">2</button>
-						<button class="p-2 flex-fill number-btn" id="3">3</button>
-						<button class="p-2 flex-fill operator" id="-">-</button>
-					</div>
-					<div class="buttons d-flex">
-						<button class="p-2 flex-fill number-btn" id=".">.</button>
-						<button class="p-2 flex-fill number-btn" id="0">0</button>
-						<button class="p-2 flex-fill flex-grow-1 equal-button operator" id="=">=</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div class="container">
+    <div class="calculator">
+      <div class="calculator__display">0</div>
+
+      <div class="calculator__keys">
+        <button class="key--operator" data-action="add">+</button>
+        <button class="key--operator" data-action="subtract">-</button>
+        <button class="key--operator" data-action="multiply">&times;</button>
+        <button class="key--operator" data-action="divide">÷</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>0</button>
+        <button data-action="decimal">.</button>
+        <button data-action="clear">AC</button>
+        <button class="key--equal" data-action="calculate">=</button>
+      </div>
+    </div>
+  </div>
 	<script src="js/main.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
