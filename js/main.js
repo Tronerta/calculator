@@ -1,3 +1,4 @@
+// Functions
 const calculate = (n1, operator, n2) => {
   const firstNum = parseFloat(n1)
   const secondNum = parseFloat(n2)
@@ -111,10 +112,31 @@ const updateVisualState = (key, calculator) => {
   }
 }
 
+// Keyboard key pressing
+const keyPressed = (evt) => {
+  let keys = document.querySelectorAll('button');
+  let keyChar = evt.key;
+  
+  if (keyChar === 'Enter') {
+    document.querySelector('[data-action="calculate"]').click();
+  } else if (keyChar === 'Backspace') {
+    document.querySelector('[data-action="clear"]').click();
+  } else {
+    for (let i = 0; i < keys.length; i++) {
+      let char = keys[i].innerHTML;
+      if (char == keyChar) {
+        keys[i].click();
+      }
+    }
+  }
+}
+
 // Main block
 const calculator = document.querySelector('.calculator')
 const display = calculator.querySelector('.calculator__display')
 const keys = calculator.querySelector('.calculator__keys')
+
+window.addEventListener("keydown", keyPressed, false)
 
 keys.addEventListener('click', e => {
   if (!e.target.matches('button')) return
