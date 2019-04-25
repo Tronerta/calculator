@@ -45,6 +45,15 @@ const createResultString = (key, displayedNum, state) => {
     return displayedNum
   }
 
+  if (keyType === 'minus') {
+    if (!displayedNum.includes('-')) return '-' + displayedNum
+    return displayedNum.split('-')[1]
+  }
+
+  if (keyType === 'percent') {
+    return displayedNum / 100
+  }
+
   if (keyType === 'operator') {
     return firstValue &&
       operator &&
@@ -59,10 +68,15 @@ const createResultString = (key, displayedNum, state) => {
   if (keyType === 'calculate') {
     return firstValue
       ? previousKeyType === 'calculate'
-        ? calculate(displayedNum, operator, modValue)
-        : calculate(firstValue, operator, displayedNum)
+        ? checkResultLength(calculate(displayedNum, operator, modValue))
+        : checkResultLength(calculate(firstValue, operator, displayedNum))
       : displayedNum
   }
+}
+
+const checkResultLength = (resultString) => {
+  if (resultString.length > 11) return resultString.substring(0, 11)
+  return resultString
 }
 
 const updateCalculatorState = (key, calculator, calculatedValue, displayedNum) => {
@@ -142,7 +156,7 @@ keys.addEventListener('click', e => {
   if (!e.target.matches('button')) return
   const key = e.target
   const displayedNum = display.textContent
-  const resultString = createResultString(key, displayedNum, calculator.dataset)
+  const resultString = checkResultLength(createResultString(key, displayedNum, calculator.dataset))
 
   display.textContent = resultString
   updateCalculatorState(key, calculator, resultString, displayedNum)
